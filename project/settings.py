@@ -25,7 +25,11 @@ SECRET_KEY = "django-insecure-@0t%7sgc1osvgq(hh0t8&@7!hy__55uxrp+xc%5sxe&jd^hs(t
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
+    "0.0.0.0",
+]
 
 
 # Application definition
@@ -37,10 +41,13 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    
     # andrea's apps
     "accounts",
     "items",
+    
     # 3rd party
+    "rest_framework",
 ]
 
 MIDDLEWARE = [
@@ -86,6 +93,18 @@ DATABASES = {
     }
 }
 
+# **********************   when using docker and a postgres db  ***********************
+
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": "postgres",
+#         "USER": "postgres",
+#         "PASSWORD": "postgres",
+#         "HOST": "db",  # set in docker-compose.yml
+#         "PORT": 5432,  # default postgres port
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators

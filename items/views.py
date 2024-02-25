@@ -1,6 +1,6 @@
 from rest_framework.generics import ListAPIView, RetrieveUpdateDestroyAPIView
 from .models import Item
-from .serializers import ItemSerializer
+from .serializer import ItemSerializer
 from .permissions import IsOwnerOrReadOnly
 
 class ItemList(ListAPIView):
